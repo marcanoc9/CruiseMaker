@@ -1,8 +1,8 @@
 //this is a program to create a GUI with which to to reserve a cruise ship room
 //Christopher Marcano
 //AdvJava
-//*******************************************************************************************************************
-//adding all javafx imports the program needs (this was extremely complicated with intellij)
+
+//adding all javafx imports the program needs 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import javafx.application.Application;
@@ -23,7 +23,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
-//********************************************************************************************************************************
+
 //main class
 //setting variables and throwing exceptions
 public class CruiseMaker extends Application {
@@ -36,7 +36,7 @@ public class CruiseMaker extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
-//******************************************************************************************************************************
+
 //this section allows you to select one of the ships
         ToggleGroup tg = new ToggleGroup();
         Label radioLabel = new Label("Please select a ship");
@@ -55,7 +55,7 @@ public class CruiseMaker extends Application {
         HBox hbox1 = new HBox(radioLabel, r1, r2, r3, r4);
         hbox1.setPadding(new Insets(20));
         hbox1.setSpacing(20);
-//*******************************************************************************************************************************
+
         //allows you to import and view image on window
         FileInputStream input = new FileInputStream("abstraction.png");
         FileInputStream inputLayout = new FileInputStream("abstraction rooms.jpg");
@@ -69,7 +69,7 @@ public class CruiseMaker extends Application {
         ShipImage.setFitWidth(300);
         ShipLayout.setFitHeight(250);
         ShipLayout.setFitWidth(300);
-//*******************************************************************************************************************************
+
         //first selection
         r1.setOnAction(e -> {
             try {
@@ -82,7 +82,6 @@ public class CruiseMaker extends Application {
                 costShip = 2000;}
             catch (FileNotFoundException e1){
                 e1.printStackTrace();}});
-//*********************************************************************************************************************************
          //selection 2
         r2.setOnAction(e -> {
             try{
@@ -95,7 +94,7 @@ public class CruiseMaker extends Application {
                 costShip = 2000;}
             catch (FileNotFoundException e1){
                 e1.printStackTrace();}});
-//********************************************************************************************************************************
+
         //selection 3
         r3.setOnAction(e -> {
             try{
@@ -108,7 +107,7 @@ public class CruiseMaker extends Application {
                 costShip = 4000;}
             catch (FileNotFoundException e1) {
                 e1.printStackTrace();}});
-//******************************************************************************************************************************
+
         //selection 4
         r4.setOnAction(e -> {
             try{
@@ -121,12 +120,12 @@ public class CruiseMaker extends Application {
                 costShip = 4000;}
             catch (FileNotFoundException e1) {
                 e1.printStackTrace();}});
-//************************************************************************************************************************
+
         //set dimensions
         HBox hbox2 = new HBox(ShipImage, ShipLayout);
         hbox2.setPadding(new Insets(20));
         hbox2.setSpacing(20);
-//******************************************************************************************************************************
+
 // allows one to set departure and arrival dates
         //labels
         Label departure = new Label("Departure");
@@ -143,7 +142,7 @@ public class CruiseMaker extends Application {
             else
                 numberOfDays = Arrival.getValue().getDayOfYear() - Departure.getValue().getDayOfYear();
             warning.setText("");});
-//*******************************************************************************************************************************
+
         // add dimensions
         HBox hbox3 = new HBox(departure, Departure, arrival, Arrival, warning);
         hbox3.setPadding(new Insets(20));
@@ -156,12 +155,11 @@ public class CruiseMaker extends Application {
         CheckBox c3 = new CheckBox("Snorkeling");
         CheckBox c4 = new CheckBox("Diving");
         CheckBox c5 = new CheckBox("Boating");
-//***********************************************************************************************************************
+
         // create dimensions
         HBox hbox4 = new HBox(activityLabel, c1, c2, c3, c4, c5);
         hbox4.setPadding(new Insets(20));
         hbox4.setSpacing(20);
-//********************************************************************************************************************************
         // create labels for text fields
         Label name = new Label("Name: ");
         TextField nameEntry = new TextField();
@@ -185,7 +183,7 @@ public class CruiseMaker extends Application {
         grid.setVgap(10);
         grid.setHgap(20);
         grid.setPadding(new Insets(20));
-//******************************************************************************************************************************
+
     //calculate cost
         costTotal = numberOfDays * costShip + costAct;
         Label totalVal = new Label("Total: $" + String.valueOf(costTotal));
